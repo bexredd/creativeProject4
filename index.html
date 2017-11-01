@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+<script src="app.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+  <title>Node api tutorial</title>
+</head>
+<body>
+
+  <div id='app' ng-app='app' ng-controller='mainCtrl'>
+
+    <div ng-if='!journal.length' class='no-pokemon center stretch'>
+      <h1 class='h1'>
+        Set up your endpoint at `/journal` to get this view working
+      </h1>
+    </div>
+
+    <ul ng-if='journal.length' class='list center stretch'>
+      <li ng-repeat='entry in journal' class='entries'>
+        <h1>{{ entry.title }}</h1>
+        <p>{{entry.Text}}</p>
+      </li>
+    </ul>
+
+<h1> Write A New Entry</h1>
+<form id="newEntry" ng-submit="addEntry()">
+  Name: <input type="text" ng-model="title" value=""><br>
+  Date: <input type="text" ng-model = "date" value = ""><br>
+  Url: <input type="text" ng-model="Text" value=""><br>
+  <input type="submit" value="Submit">
+</form>
+  </div>
+
+</body>
+</html>
